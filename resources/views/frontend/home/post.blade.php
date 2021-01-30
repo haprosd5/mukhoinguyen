@@ -13,14 +13,14 @@
             <!-- Date/Time -->
 
             <p><i class="fa fa-folder-open-o" aria-hidden="true"></i>
-                <a href="/news/su-kien">Sự kiện</a> <i class="fa fa-clock-o" aria-hidden="true"></i> Đăng vào lúc: 23-01-2021 10:55 <i class="fa fa-user" aria-hidden="true"></i> GraceHuynh
+                <a href="{{route('event')}}">Sự kiện</a> <i class="fa fa-clock-o" aria-hidden="true"></i> Đăng vào lúc: 23-01-2021 10:55 <i class="fa fa-user" aria-hidden="true"></i> GraceHuynh
             </p>
 
             <hr>
 
             <!-- Preview Image -->
             <div class="text-center">
-                <img class="img-fluid rounded img-fluid rounded" src="https://dangky3gmobifone.net/wp-content/uploads/2016/03/khuyen-mai-100-vinaphone-ngay-15032016.jpg" alt="KM 100% Quy Đổi Kim Cương Chào Đón Máy Chủ 3">
+                <img class="img-fluid rounded img-fluid rounded" src="{{asset('images/khuyen-mai-100-vinaphone-ngay-15032016.jpg')}}" alt="KM 100% Quy Đổi Kim Cương Chào Đón Máy Chủ 3">
             </div>
 
             <hr>
@@ -39,7 +39,7 @@
 
                 <p>Chúc các bạn chơi game vui vẻ!!!</p>
                 <p class="text-right">MU kính báo,</p>
-                <p class="text-right">Truy cập <a href="https://facebook.com/muh5z" target="_blank">Fanpage</a> và <a href="https://facebook.com/groups/donggameviet" target="_blank">Group</a> để cập nhật những thông tin cũng như giftcode mới nhất từ game!</p>
+                <p class="text-right">Truy cập <a href="#" target="_blank">Fanpage</a> và <a href="#" target="_blank">Group</a> để cập nhật những thông tin cũng như giftcode mới nhất từ game!</p>
 
             </div>
             <hr>
@@ -52,7 +52,7 @@
             </ul>
 
             <!-- Comments  -->
-            <div class="fb-comments fb_iframe_widget fb_iframe_widget_fluid_desktop" colorscheme="dark" data-href="http://muh5z.com/su-kien/km-100-quy-doi-kim-cuong-chao-don-may-chu-3" data-width="100%" data-numposts="5" fb-xfbml-state="rendered" fb-iframe-plugin-query="app_id=433354790408741&amp;color_scheme=dark&amp;container_width=730&amp;height=100&amp;href=http%3A%2F%2Fmuh5z.com%2Fsu-kien%2Fkm-100-quy-doi-kim-cuong-chao-don-may-chu-3&amp;locale=vi_VN&amp;numposts=5&amp;sdk=joey&amp;skin=dark&amp;version=v4.0&amp;width=" style="width: 100%;"><span style="vertical-align: bottom; width: 100%; height: 202px;"><iframe name="f17cf43ddda86c4" width="1000px" height="100px" data-testid="fb:comments Facebook Social Plugin" title="fb:comments Facebook Social Plugin" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" allow="encrypted-media" src="https://www.facebook.com/v4.0/plugins/comments.php?app_id=433354790408741&amp;channel=https%3A%2F%2Fstaticxx.facebook.com%2Fx%2Fconnect%2Fxd_arbiter%2F%3Fversion%3D46%23cb%3Df27b72090efff8%26domain%3Dmuh5z.com%26origin%3Dhttp%253A%252F%252Fmuh5z.com%252Ff2d000274d19f48%26relation%3Dparent.parent&amp;color_scheme=dark&amp;container_width=730&amp;height=100&amp;href=http%3A%2F%2Fmuh5z.com%2Fsu-kien%2Fkm-100-quy-doi-kim-cuong-chao-don-may-chu-3&amp;locale=vi_VN&amp;numposts=5&amp;sdk=joey&amp;skin=dark&amp;version=v4.0&amp;width=" style="border: none; visibility: visible; width: 100%; height: 202px;" __idm_frm__="597" class=""></iframe></span></div>
+            <div class="fb-comments fb_iframe_widget fb_iframe_widget_fluid_desktop" colorscheme="dark" data-href="#" data-width="100%" data-numposts="5" fb-xfbml-state="rendered" fb-iframe-plugin-query="app_id=433354790408741&amp;color_scheme=dark&amp;container_width=730&amp;height=100&amp;href=http%3A%2F%2Fmuh5z.com%2Fsu-kien%2Fkm-100-quy-doi-kim-cuong-chao-don-may-chu-3&amp;locale=vi_VN&amp;numposts=5&amp;sdk=joey&amp;skin=dark&amp;version=v4.0&amp;width=" style="width: 100%;"><span style="vertical-align: bottom; width: 100%; height: 202px;"><iframe name="f17cf43ddda86c4" width="1000px" height="100px" data-testid="fb:comments Facebook Social Plugin" title="fb:comments Facebook Social Plugin" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" allow="encrypted-media" src="https://www.facebook.com/v4.0/plugins/comments.php?app_id=433354790408741&amp;channel=https%3A%2F%2Fstaticxx.facebook.com%2Fx%2Fconnect%2Fxd_arbiter%2F%3Fversion%3D46%23cb%3Df27b72090efff8%26domain%3Dmuh5z.com%26origin%3Dhttp%253A%252F%252Fmuh5z.com%252Ff2d000274d19f48%26relation%3Dparent.parent&amp;color_scheme=dark&amp;container_width=730&amp;height=100&amp;href=http%3A%2F%2Fmuh5z.com%2Fsu-kien%2Fkm-100-quy-doi-kim-cuong-chao-don-may-chu-3&amp;locale=vi_VN&amp;numposts=5&amp;sdk=joey&amp;skin=dark&amp;version=v4.0&amp;width=" style="border: none; visibility: visible; width: 100%; height: 202px;" __idm_frm__="597" class=""></iframe></span></div>
 
         </div>
 

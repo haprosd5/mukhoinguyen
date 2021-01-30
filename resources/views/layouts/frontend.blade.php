@@ -75,11 +75,15 @@
             <span class="navbar-toggler-icon"></span>
         </button>
 
+
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav">
                 <li class="nav-item mr-auto">
-                    <a class="nav-link" href="{{route('home')}}"><i class="fa fa-newspaper-o" aria-hidden="true"></i>
-                        Tin tức</a>
+                    <a class="nav-link" href="{{route('home')}}">
+                        <i class="fa fa-newspaper-o" aria-hidden="true"></i>
+                        Tin tức
+                    </a>
+
                 </li>
                 <li class="nav-item mr-auto">
                     <a class="nav-link" href="{{route('event')}}"><i class="fa fa-gift" aria-hidden="true"></i>
@@ -88,31 +92,54 @@
 
                 <li class="nav-item mr-auto">
                     <a target="_blank" class="nav-link" href="https://facebook.com/"><i
-                                class="fa fa-facebook" aria-hidden="true"></i> Cộng đồng</a>
+                            class="fa fa-facebook" aria-hidden="true"></i> Cộng đồng</a>
                 </li>
                 <li class="nav-item mr-auto">
-                    <a target="_blank" class="nav-link" href="#"><i class="fa  fa-gift
+                    <a target="_blank" class="nav-link" @if(session()->has('username')) href="{{ url('user/home/'.session()->get('username')) }}" @else href="#" @endif ><i class="fa  fa-gift
 " aria-hidden="true"></i> Giftcode</a>
 
                 </li>
                 <li class="nav-item mr-auto">
                     <a class="nav-link" href="#"><i class="fa fa-gamepad" aria-hidden="true"></i> Game hay<sup><span
-                                    class="badge badge-warning">NEW</span></sup></a>
+                                class="badge badge-warning">NEW</span></sup></a>
                 </li>
 
             </ul>
-            <div class="ml-auto">
-                <ul class="navbar-nav">
-                    <li class="nav-item mr-auto">
-
-                        <a class="nav-link" href="#" data-toggle="modal"><i class="fa fa-user"
-                                                                            aria-hidden="true"></i> Đăng nhập</a>
-
-                    </li>
 
 
-                </ul>
-            </div>
+            @if (session()->has('username'))
+                <div class="ml-auto">
+                    <ul class="navbar-nav">
+                        <li class="nav-item mr-auto">
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                                <i class="fa fa-user" aria-hidden="true"></i> {{ session()->get('username') }} </a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" target="_blank"
+                                   href="{{ url('user/home/'.session()->get('username')) }}">Thông tin</a>
+                                <a class="dropdown-item" target="_blank" href="#">Đổi
+                                    mật khẩu</a>
+                                <a class="dropdown-item" href="{{route('logout')}}">Thoát</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            @else
+                <div class="ml-auto">
+                    <ul class="navbar-nav">
+                        <li class="nav-item mr-auto">
+                            <a class="nav-link" href="#login" data-toggle="modal">
+                                <i class="fa fa-user" aria-hidden="true"></i>
+                                Đăng nhập
+                            </a>
+                        </li>
+
+
+                    </ul>
+                </div>
+            @endif
+
 
         </div>
     </div>
@@ -140,10 +167,12 @@
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
             </div>
             <div class="modal-body">
-                <form method="post" onsubmit="ajaxLogin();return false;">
+                <form method="POST" action="{{ route('login')  }}">
+                    {{--                    //onsubmit="ajaxLogin();return false;"--}}
+                    @csrf
                     <div class="form-group">
-                        <input type="text" class="form-control" name="login_username" id="login_username"
-                               placeholder="Tên tài khoản">
+                        <input type="email" class="form-control" name="login_email" id="login_email"
+                               placeholder="Email">
                     </div>
                     <div class="form-group">
                         <input type="password" class="form-control" name="login_password" id="login_password"
@@ -170,32 +199,54 @@
 
             <div class="modal-header">
                 <div class="avatar">
-                    <img src="assets/img/avatar.png" alt="Avatar">
+                    <img src="{{asset('images/img-avatar.png')}}" alt="Avatar">
                 </div>
                 <h4 class="modal-title">Đăng ký</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
             </div>
             <div class="modal-body">
-                <form method="post" onsubmit="ajaxRegister();return false;">
+                <form method="POST" action="{{ route('register') }}">
+                    @csrf
                     <div class="form-group">
                         <input type="text" class="form-control" name="register_username" id="register_username"
                                placeholder="Tên tài khoản">
+                        @if ($errors->has('register_username'))
+                            <span id="register_msg">
+                            <strong>{{ $errors->first('register_username') }}</strong>
+                        </span>
+                        @endif
                     </div>
                     <div class="form-group">
                         <input type="text" class="form-control" name="register_email" id="register_email"
                                placeholder="Email">
+                        @if ($errors->has('register_email'))
+                            <span id="register_msg">
+                            <strong>{{ $errors->first('register_email') }}</strong>
+                        </span>
+                        @endif
                     </div>
                     <div class="form-group">
                         <input type="password" class="form-control" name="register_password" id="register_password"
                                placeholder="Mật khẩu">
+                        @if ($errors->has('register_password'))
+                            <span id="register_msg">
+                            <strong>{{ $errors->first('register_password') }}</strong>
+                        </span>
+                        @endif
                     </div>
                     <div class="form-group">
                         <input type="password" class="form-control" name="register_rePassword" id="register_rePassword"
                                placeholder="Nhập lại mật khẩu">
+                        @if ($errors->has('register_password'))
+                            <span id="register_msg">
+                            <strong>{{ $errors->first('register_password') }}</strong>
+                        </span>
+                        @endif
                     </div>
                     <div class="form-group">
                         <button type="submit" class="btn btn-primary btn-lg btn-block login-btn">Đăng ký</button>
                     </div>
+
                     <span id="register_msg"></span>
 
                 </form>

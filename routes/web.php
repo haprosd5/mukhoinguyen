@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\frontend\HomeController;
+use App\Http\Controllers\user\UsersController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,7 +15,7 @@ use App\Http\Controllers\frontend\HomeController;
 */
 Route::group(['namespace' => 'frontend'], function () {
 
-    /* Tìm kiếm */
+    /* trang home */
     Route::get('/', 'HomeController@showHomePage')->name('home');
     Route::get('/event', 'HomeController@showEventPage')->name('event');
     Route::get('/post', 'PostController@showPostPage')->name('post');
@@ -22,6 +23,23 @@ Route::group(['namespace' => 'frontend'], function () {
 });
 
 
-Route::get('/login', function () {
+
+
+Route::group(['namespace' => 'user'], function () {
+
+    /* trang home */
+    Route::get('/user/home/{username}', 'UsersController@showUserForm')->name('dashbroad');
+    /*xu ly login*/
+    Route::post('/login', 'LoginController@requestLoginForm')->name('login');
+    Route::get('/logout', 'LoginController@logoutForm')->name('logout');
+    /*dang ky tai khoan*/
+    Route::post('/register', 'RegisterController@requestRegisterForm')->name('register');
+
 
 });
+
+
+/*
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');*/

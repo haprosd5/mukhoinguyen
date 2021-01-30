@@ -2,7 +2,6 @@
 
 @section('content')
     <div class="row ng-scope">
-
         <div class="col-md-12 mt-4 mb-4">
             @for ($i = 0; $i < 5; $i++)
 

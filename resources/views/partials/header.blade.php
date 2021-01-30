@@ -15,7 +15,7 @@
                     Chơi ngay!
                 </button>
                 <div class="btn-group">
-                    <button onclick=" window.open('http://muh5z.com/user/exchange','_blank')"
+                    <button onclick=" window.open('#','_blank')"
                             class="border-0 p-2 btn-play">Nạp tiền
                     </button>
                     <button href="#register" data-toggle="modal" class="border-0 p-2 btn-play">Đăng ký</button>

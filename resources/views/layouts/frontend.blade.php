@@ -106,18 +106,20 @@
 
             </ul>
 
+            {{$username ?? ''}}
 
-            @if (session()->has('username'))
+
+            @isset($username)
                 <div class="ml-auto">
                     <ul class="navbar-nav">
                         <li class="nav-item mr-auto">
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-                                <i class="fa fa-user" aria-hidden="true"></i> {{ session()->get('username') }} </a>
+                                <i class="fa fa-user" aria-hidden="true"></i> {{ $username }} </a>
                             <div class="dropdown-menu">
                                 <a class="dropdown-item" target="_blank"
-                                   href="{{ url('user/home/'.session()->get('username')) }}">Thông tin</a>
+                                   href="{{ url('user/home') }}">Thông tin</a>
                                 <a class="dropdown-item" target="_blank" href="#">Đổi
                                     mật khẩu</a>
                                 <a class="dropdown-item" href="{{route('logout')}}">Thoát</a>
@@ -125,7 +127,7 @@
                         </li>
                     </ul>
                 </div>
-            @else
+            @endisset
                 <div class="ml-auto">
                     <ul class="navbar-nav">
                         <li class="nav-item mr-auto">
@@ -138,7 +140,6 @@
 
                     </ul>
                 </div>
-            @endif
 
 
         </div>
@@ -167,7 +168,7 @@
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
             </div>
             <div class="modal-body">
-                <form method="POST" action="{{ route('login')  }}">
+                <form method="POST" action="{{ route('post.login')  }}">
                     {{--                    //onsubmit="ajaxLogin();return false;"--}}
                     @csrf
                     <div class="form-group">

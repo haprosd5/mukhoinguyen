@@ -10,6 +10,10 @@ use App\User;
 class LoginController extends Controller
 {
     //
+    public function loginForm()
+    {
+        return view('login.login');
+    }
 
     public function requestLoginForm(Request $request)
     {
@@ -35,26 +39,16 @@ class LoginController extends Controller
 
             if (isset($kq->email))
                 if (trim($request->login_password) == $kq->password) {
-
-                    $request->session()->put('username', $kq->name);
-                    return redirect()->route('home');
-
-                } else {
-                    $request->session()->put('dk_error', 'that bai');
-                    return redirect()->route('home');
+                    print ('a');
+                    return \Redirect()->route('home')->with('username', $kq->name);
                 }
-
-            else {
-                $request->session()->put('dk_error', 'that bai');
-                return redirect()->route('home');
-
-            }
-
         }
-        return back();
+        return redirect()->route('home', ['dk_error', 'that bai']);
     }
 
-    public function logoutForm(Request $request) {
+
+    public function logoutForm(Request $request)
+    {
         Auth::logout();
         $request->session()->forget('username');
         return back();

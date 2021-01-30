@@ -33,8 +33,12 @@
 
         <div class="row no-gutters social-container">
             <div class="col"><a class="social-inner" href="{{route('home')}}"><span>Trang chủ</span></a></div>
-            <div class="col"><a class="social-inner" href="http://muh5z.com/user"><span>Tài khoản</span></a></div>
-            <div class="col"><a class="social-inner" href="http://muh5z.com/user/payment"><span>Nạp xu</span></a></div>
+            <div class="col"><a class="social-inner" href="@if (session()->has('username'))
+                {{ url('user/home') }}
+                @else
+                {{route('get.login')}}
+                @endif"><span>Tài khoản</span></a></div>
+            <div class="col"><a class="social-inner" href=""><span>Nạp xu</span></a></div>
             <div class="col"><a class="social-inner" href="#"><span>Điều khoản</span></a></div>
         </div>
     </div>

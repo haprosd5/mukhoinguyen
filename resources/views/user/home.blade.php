@@ -1,6 +1,7 @@
 @extends('user.layout')
 
 @section('content')
+    <div class="row mb-3 ">
 
     <div class="col-lg-12 col-md-12 mb-lg-0">
         <!--Card-->
@@ -18,7 +19,7 @@
                 <button onclick="attendance();" type="button" class="btn btn-info ">
                     Điểm danh <span class="badge badge-warning">nhận <i class="fas fa-gem"></i> Gem</span>
                 </button>
-                <a href="/user/quick-play-tramyeu" type="button" class="btn btn-warning ">
+                <a href="#" type="button" class="btn btn-warning ">
                     Vào game
                 </a>
             </div>
@@ -36,7 +37,7 @@
             <div class="col mb-2 masthead">
                 <div class="px-4 masthead-cards">
                     <div class="d-flex">
-                        <a href="payment" class="w-50 pr-3 pb-4">
+                        <a href="#" class="w-50 pr-3 pb-4">
                             <div class="card border-0 border-bottom-red shadow-lg shadow-hover">
                                 <div class="card-body text-center">
                                     <div class="text-center">
@@ -46,7 +47,7 @@
                                 </div>
                             </div>
                         </a>
-                        <a href="exchange" class="w-50 pl-3 pb-4">
+                        <a href="#" class="w-50 pl-3 pb-4">
                             <div class="card border-0 border-bottom-blue shadow-lg shadow-hover">
                                 <div class="card-body text-center">
                                     <div class="text-center">
@@ -59,7 +60,7 @@
                     </div>
                     <div class="d-flex">
 
-                        <a href="giftcode" class="w-50 pl-3 pb-4">
+                        <a href="#" class="w-50 pl-3 pb-4">
                             <div class="card border-0 border-bottom-green shadow-lg shadow-hover">
                                 <div class="card-body text-center">
                                     <div class="text-center">
@@ -69,7 +70,7 @@
                                 </div>
                             </div>
                         </a>
-                        <a href="vongquay" class="w-50 pl-3 pb-4">
+                        <a href="#" class="w-50 pl-3 pb-4">
                             <div class="card border-0 border-bottom-nonebit shadow-lg shadow-hover">
                                 <div class="card-body text-center">
                                     <div class="text-center">

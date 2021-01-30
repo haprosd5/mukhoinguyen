@@ -45,7 +45,7 @@
         <div class="navbar-collapse collapse" id="navbarSupportedContent" style="">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="{{url('/user/home/'.$username)}}">
+                    <a class="nav-link" href="{{url('/user/home')}}">
                         <i class="fa fa-home"></i>
                         Trang chủ
                         <span class="sr-only">(current)</span>
@@ -62,13 +62,13 @@
                         Nạp xu
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="/user/payment_momo">Nạp MoMo</a>
-                        <a class="dropdown-item" href="/user/payment_bank">Nạp ngân hàng</a>
-                        <a class="dropdown-item" href="/user/payment_mobi">Nạp thẻ cào</a>
+                        <a class="dropdown-item" href="{{route('get.payMomo')}}">Nạp MoMo</a>
+                        <a class="dropdown-item" href="{{route('get.payBank')}}">Nạp ngân hàng</a>
+                        <a class="dropdown-item" href="{{route('get.payCard')}}">Nạp thẻ cào</a>
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/user/exchange">
+                    <a class="nav-link" href="#">
                         <i class="fa fa-lg fa-exchange-alt">
                         </i>
                         Nạp game
@@ -286,7 +286,7 @@
 
 
 <div class="container">
-    <div class="row mb-3 ">
+
         {{--        hien thi noi dung --}}
         @yield('content')
         {{--        ket thuc noi dung--}}
@@ -300,6 +300,8 @@
                 </ul>
             </footer>
         </div>
+    </div>
+</div>
 </body>
 <script type="text/javascript" src="{{asset('user/js/jquery.smartWizard.min.js')}}"></script>
 <!-- Global site tag (gtag.js) - Google Analytics -->

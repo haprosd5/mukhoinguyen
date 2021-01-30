@@ -10,15 +10,29 @@ use App\User;
 class RegisterController extends Controller
 {
 
+    public function registerForm() {
+        return view('login.register');
+    }
+
     public function requestRegisterForm(Request $request)
     {
         if ($request->isMethod('post')) {
-            $request->validate([
-                'register_username' => 'required|regex:/(^([a-z]+)(\d+)?$)/u',
-                'register_email' => 'required',
-                'register_password' => 'required',
-                'register_rePassword' => 'required',
-            ]);
+            $request->validate(
+                [
+                    'register_username' => 'required|regex:/(^([a-z]+)(\d+)?$)/u',
+                    'register_email' => 'required|unique:App\User,email',
+                    'register_password' => 'required',
+                    'register_rePassword' => 'required',
+                ],
+                [
+                    'required' => ':attribute Không được để trống',
+                    'unique' => 'Email đã tồn tại',
+                ],
+
+                [
+                    'login_email' => 'Địa chỉ email',
+                    'login_password' => 'Mật khẩu',
+                ]);
 
             /**
              * ! khai bao cac thuoc tinh cua user
@@ -32,10 +46,12 @@ class RegisterController extends Controller
 
             $result = $this->createUser($name, $email, $password, '2');
             if ($result->id) {
-               return redirect()->view('frontend.home.index', ['dk_success' => 'Đăng kí tài khoản thành công']);
-            } else
-                return redirect()->view('frontend.home.index', ['dk_error' => 'Đăng kí tài khoản thành công']);
+                return redirect()->route('home', ['dk_success' => 'Đăng kí tài khoản thành công']);
+            } else {
+                return redirect()->route('home', ['dk_error' => 'Đăng kí tài khoản thất bại']);
+            }
         }
+        return redirect()->route('home');
     }
 
     /*ham tao user*/

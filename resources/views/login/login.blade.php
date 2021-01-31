@@ -103,13 +103,8 @@
             </label>
         </div>
         <button class="btn btn-lg btn-info btn-block" type="submit">Đăng nhập</button>
-    </div>
+
 </form>
-<!-- <div class="text-center m-2 font-italic">hoặc</div>
-<button type="button"  href="javascript:void(0)" onclick="fblogin()" class="btn btn-lg btn-primary btn-block"> <i class="fa fa-facebook-square" aria-hidden="true"></i> Facebook</button>
-<script type="text/javascript">
-  function fblogin(){window.location='/auth/fblogin/?returnURL=/'}
-  </script> -->
 <hr>
 <div class="row">
 

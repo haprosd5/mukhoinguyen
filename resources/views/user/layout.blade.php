@@ -45,7 +45,7 @@
         <div class="navbar-collapse collapse" id="navbarSupportedContent" style="">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="{{url('/user/home')}}">
+                    <a class="nav-link" href="{{url('/user/'.$username)}}">
                         <i class="fa fa-home"></i>
                         Trang chủ
                         <span class="sr-only">(current)</span>
@@ -62,9 +62,9 @@
                         Nạp xu
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="{{route('get.payMomo')}}">Nạp MoMo</a>
-                        <a class="dropdown-item" href="{{route('get.payBank')}}">Nạp ngân hàng</a>
-                        <a class="dropdown-item" href="{{route('get.payCard')}}">Nạp thẻ cào</a>
+                        <a class="dropdown-item" href="{{route('get.payMomo', ['username' => $username])}}">Nạp MoMo</a>
+                        <a class="dropdown-item" href="{{route('get.payBank', ['username' => $username])}}">Nạp ngân hàng</a>
+                        <a class="dropdown-item" href="{{route('get.payCard', ['username' => $username])}}">Nạp thẻ cào</a>
                     </div>
                 </li>
                 <li class="nav-item">
@@ -87,9 +87,9 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="accountDropdown">
 
-                        <a target="_blank" href="https://facebook.com/muh5z" class="dropdown-item "><i
+                        <a target="_blank" href="#" class="dropdown-item "><i
                                 class="fab fa-facebook fa-lg"></i> Fanpage</a>
-                        <a target="_blank" href="https://facebook.com/groups/donggameviet" class="dropdown-item "><i
+                        <a target="_blank" href="#" class="dropdown-item "><i
                                 class="fab fa-facebook fa-lg"></i> Group</a>
 
                     </div>
@@ -104,9 +104,9 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="accountDropdown">
 
-                        <a href="/user/payment_log" class="dropdown-item "><i class="fa fa-lg fa-history"
+                        <a href="{{route('get.payLog', ['username' => $username])}}" class="dropdown-item "><i class="fa fa-lg fa-history"
                                                                               aria-hidden="true"></i> Lịch sử nạp</a>
-                        <a href="/user/giftcode" class="dropdown-item "><i class="fa fa-lg fa-gift"
+                        <a href="{{route('get.payGift', ['username' => $username])}}" class="dropdown-item "><i class="fa fa-lg fa-gift"
                                                                            aria-hidden="true"></i> Giftcode</a>
 
                     </div>

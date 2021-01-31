@@ -25,10 +25,9 @@ Route::group(['namespace' => 'frontend'], function () {
 Route::group(['namespace' => 'user'], function () {
 
     /* trang home */
-    Route::get('/user/home', 'UsersController@showUserForm')->name('dashbroad');
+    Route::get('/user/{username}', 'UsersController@showUserForm')->name('dashbroad');
     /*xu ly login*/
-    Route::get('/user/login', 'LoginController@loginForm')->name('get.login');
-    //Route::post('/user/login', 'LoginController@requestLoginForm2')->name('post.login');
+    Route::get('/login/index', 'LoginController@loginForm')->name('get.login');
     Route::post('/user/login', 'LoginController@requestLoginForm')->name('post.login');
     /*xu ly forgotpass*/
     Route::get('/user/forgotPassword', 'ForgotPass@showForm')->name('forgot.pass');
@@ -42,9 +41,11 @@ Route::group(['namespace' => 'user'], function () {
 
 Route::group(['namespace' => 'napthe'], function () {
     /*xu ly chuc nang nap xu trong trang quan tri user*/
-    Route::get('/user/payment_momo', 'MomoController@showForm')->name('get.payMomo');
-    Route::get('/user/payment_bank', 'BankController@showForm')->name('get.payBank');
-    Route::get('/user/payment_card', 'CardController@showForm')->name('get.payCard');
+    Route::get('/user/{username}/payment_momo', 'MomoController@showForm')->name('get.payMomo');
+    Route::get('/user/{username}/payment_bank', 'BankController@showForm')->name('get.payBank');
+    Route::get('/user/{username}/payment_card', 'CardController@showForm')->name('get.payCard');
+    Route::get('/user/{username}/paylog', 'PayLogController@showForm')->name('get.payLog');
+    Route::get('/user/{username}/paygift', 'GiftController@showForm')->name('get.payGift');
 });
 
 /*

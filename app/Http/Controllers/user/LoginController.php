@@ -39,11 +39,17 @@ class LoginController extends Controller
 
             if (isset($kq->email))
                 if (trim($request->login_password) == $kq->password) {
-                    print ('a');
-                    return \Redirect()->route('home')->with('username', $kq->name);
+                    $request->session()->put('username', $kq->name);
+                    return redirect()->route('home');
+                } else {
+                    $request->session()->put('dk_error', 'that bai');
+                    return redirect()->route('home');
                 }
+        } else {
+            $request->session()->put('dk_error', 'that bai');
+            return redirect()->route('home');
         }
-        return redirect()->route('home', ['dk_error', 'that bai']);
+
     }
 
 

@@ -34,7 +34,7 @@
         <div class="row no-gutters social-container">
             <div class="col"><a class="social-inner" href="{{route('home')}}"><span>Trang chủ</span></a></div>
             <div class="col"><a class="social-inner" href="@if (session()->has('username'))
-                {{ url('user/home') }}
+                {{ url('user/'.session('username')) }}
                 @else
                 {{route('get.login')}}
                 @endif"><span>Tài khoản</span></a></div>

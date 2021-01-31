@@ -8,7 +8,8 @@ use Illuminate\Http\Request;
 class MomoController extends Controller
 {
     //
-    public function showForm() {
-        return view('user.pages.napMomo');
+    public function showForm($username) {
+        //print ($username);
+        return view('user.pages.napMomo', ['username' => $username]);
     }
 }

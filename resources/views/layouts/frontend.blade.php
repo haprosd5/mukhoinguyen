@@ -106,20 +106,17 @@
 
             </ul>
 
-            {{$username ?? ''}}
-
-
-            @isset($username)
+            @if (session('username'))
                 <div class="ml-auto">
                     <ul class="navbar-nav">
                         <li class="nav-item mr-auto">
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-                                <i class="fa fa-user" aria-hidden="true"></i> {{ $username }} </a>
+                                <i class="fa fa-user" aria-hidden="true"></i> {{ session('username') }} </a>
                             <div class="dropdown-menu">
                                 <a class="dropdown-item" target="_blank"
-                                   href="{{ url('user/home') }}">Thông tin</a>
+                                   href="{{ url('user/'.session('username')) }}">Thông tin</a>
                                 <a class="dropdown-item" target="_blank" href="#">Đổi
                                     mật khẩu</a>
                                 <a class="dropdown-item" href="{{route('logout')}}">Thoát</a>
@@ -127,7 +124,7 @@
                         </li>
                     </ul>
                 </div>
-            @endisset
+            @else
                 <div class="ml-auto">
                     <ul class="navbar-nav">
                         <li class="nav-item mr-auto">
@@ -136,22 +133,20 @@
                                 Đăng nhập
                             </a>
                         </li>
-
-
                     </ul>
                 </div>
-
+            @endif
 
         </div>
     </div>
 </nav>
-{{--hien thi header--}}
-@include('partials.header', ['h3text' => 'Ra mắt hôm nay!', 'headerText' => 'Tặng VIP6 + 1.000.000 kim cương'])
-{{--ket thuc header--}}
+    {{--hien thi header--}}
+        @include('partials.header', ['h3text' => 'Ra mắt hôm nay!', 'headerText' => 'Tặng VIP6 + 1.000.000 kim cương'])
+    {{--ket thuc header--}}
 <div class="container">
 
     {{--        hien thi noi dung --}}
-    @yield('content')
+        @yield('content')
     {{--        ket thuc noi dung--}}
 
 

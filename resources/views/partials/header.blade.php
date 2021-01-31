@@ -10,12 +10,14 @@
         </div>
     @endif
 
-    @isset($dk_error)
-        {{$dk_error}}
-    @endisset
-    @isset($username)
-        {{$username}}
-    @endisset
+    @if(session()->has('dk_error'))
+        <div class="alert alert-danger text-center">
+            {{session('dk_error')}}
+        </div>
+
+    @endif
+
+
     <div class="container header-box vertical-center text-center">
         <div class="row mx-auto">
             <div class="col-md-12">

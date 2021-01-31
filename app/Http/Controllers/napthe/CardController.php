@@ -8,7 +8,8 @@ use Illuminate\Http\Request;
 class CardController extends Controller
 {
     //
-    public function showForm() {
-        return view('user.pages.napCard');
+    public function showForm($username) {
+        //print ($username);
+        return view('user.pages.napCard', ['username' => $username]);
     }
 }
